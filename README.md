@@ -17,3 +17,11 @@ Este proyecto es una aplicación bancaria desarrollada en Java que permite a los
 ## Créditos
 
 Este proyecto fue creado por Miguel Mallqui Diaz como proyecto para el curso de Integrador 1, se tomó como referencia al banco BCP.
+
+## Capturas de pantallas
+
+A continuación, se muestra algunas de las pantallas que ilustran las funcionalidades de la aplicación.
+
+### Login
+
+![Captura de pantalla de la app bancaria](https://i.imgur.com/ZY8Rs4H.png)
