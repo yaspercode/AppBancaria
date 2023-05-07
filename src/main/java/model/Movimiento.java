@@ -6,25 +6,20 @@ package model;
  */
 public class Movimiento {
     private int id;
-    private String tipo_operacion; //deposito, retiro o transferencia
-    private String fecha;
-    private String descripcion;
+    private String tipo_trasnferencia; //Entre mis cuentas o a otra persona del mismo banco
     private double monto;
-    private double tasa_cambio;
     private double comision;
+    private String descripcion;
+    private String fecha;
     private Cuenta cuenta;
 
-    public Movimiento() {
-    }
-
-    public Movimiento(int id, String tipo_operacion, String fecha, String descripcion, double monto, double tasa_cambio, double comision, Cuenta cuenta) {
+    public Movimiento(int id, String tipo_trasnferencia, double monto, double comision, String descripcion, String fecha, Cuenta cuenta) {
         this.id = id;
-        this.tipo_operacion = tipo_operacion;
-        this.fecha = fecha;
-        this.descripcion = descripcion;
+        this.tipo_trasnferencia = tipo_trasnferencia;
         this.monto = monto;
-        this.tasa_cambio = tasa_cambio;
         this.comision = comision;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
         this.cuenta = cuenta;
     }
 
@@ -36,28 +31,12 @@ public class Movimiento {
         this.id = id;
     }
 
-    public String getTipo_operacion() {
-        return tipo_operacion;
+    public String getTipo_trasnferencia() {
+        return tipo_trasnferencia;
     }
 
-    public void setTipo_operacion(String tipo_operacion) {
-        this.tipo_operacion = tipo_operacion;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setTipo_trasnferencia(String tipo_trasnferencia) {
+        this.tipo_trasnferencia = tipo_trasnferencia;
     }
 
     public double getMonto() {
@@ -68,20 +47,28 @@ public class Movimiento {
         this.monto = monto;
     }
 
-    public double getTasa_cambio() {
-        return tasa_cambio;
-    }
-
-    public void setTasa_cambio(double tasa_cambio) {
-        this.tasa_cambio = tasa_cambio;
-    }
-
     public double getComision() {
         return comision;
     }
 
     public void setComision(double comision) {
         this.comision = comision;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public Cuenta getCuenta() {
@@ -92,10 +79,6 @@ public class Movimiento {
         this.cuenta = cuenta;
     }
 
-    @Override
-    public String toString() {
-        return "Movimiento{" + "id=" + id + ", tipo_operacion=" + tipo_operacion + ", fecha=" + fecha + ", descripcion=" + descripcion + ", monto=" + monto + ", tasa_cambio=" + tasa_cambio + ", comision=" + comision + ", cuenta=" + cuenta + '}';
-    }
     
     
     

@@ -9,28 +9,32 @@ import java.util.ArrayList;
  */
 public class Cuenta {
     private int id;
-    private String tipo_cuenta; //cuenta de ahorros o cuenta corriente
-    private int numero_cuenta; //número de la cuenta 
-    private int clave; //clave de digitos de la cuenta 
-    private String tipo_nomneda; //PEN o USD
-    private String fecha_apertura;
-    private double saldo;
+    private String numero_cuenta; //número de la cuenta 
+    private int clave; //clave de 6 digitos
+    private String fecha_creacion;
+    private String tipo_cuenta; //Ahorro o Corriente 
+    private String tipo_nomneda; //PEN o USD    
+    private double monto;
     private Cliente cliente;
+    private List<Transferencia> transferencia;
     private List<Movimiento> movimientos;
 
-    public Cuenta(int id, String tipo_cuenta, int numero_cuenta, int clave, String tipo_nomneda, String fecha_apertura, double saldo, Cliente cliente) {
+    public Cuenta() {
+    }
+
+    public Cuenta(int id, String numero_cuenta, int clave, String fecha_creacion, String tipo_cuenta, String tipo_nomneda, double monto, Cliente cliente) {
         this.id = id;
-        this.tipo_cuenta = tipo_cuenta;
         this.numero_cuenta = numero_cuenta;
         this.clave = clave;
+        this.fecha_creacion = fecha_creacion;
+        this.tipo_cuenta = tipo_cuenta;
         this.tipo_nomneda = tipo_nomneda;
-        this.fecha_apertura = fecha_apertura;
-        this.saldo = saldo;
+        this.monto = monto;
         this.cliente = cliente;
+        this.transferencia = new ArrayList<>();
         this.movimientos = new ArrayList<>();
     }
 
-    
     public int getId() {
         return id;
     }
@@ -39,19 +43,11 @@ public class Cuenta {
         this.id = id;
     }
 
-    public String getTipo_cuenta() {
-        return tipo_cuenta;
-    }
-
-    public void setTipo_cuenta(String tipo_cuenta) {
-        this.tipo_cuenta = tipo_cuenta;
-    }
-
-    public int getNumero_cuenta() {
+    public String getNumero_cuenta() {
         return numero_cuenta;
     }
 
-    public void setNumero_cuenta(int numero_cuenta) {
+    public void setNumero_cuenta(String numero_cuenta) {
         this.numero_cuenta = numero_cuenta;
     }
 
@@ -62,7 +58,23 @@ public class Cuenta {
     public void setClave(int clave) {
         this.clave = clave;
     }
-    
+
+    public String getFecha_creacion() {
+        return fecha_creacion;
+    }
+
+    public void setFecha_creacion(String fecha_creacion) {
+        this.fecha_creacion = fecha_creacion;
+    }
+
+    public String getTipo_cuenta() {
+        return tipo_cuenta;
+    }
+
+    public void setTipo_cuenta(String tipo_cuenta) {
+        this.tipo_cuenta = tipo_cuenta;
+    }
+
     public String getTipo_nomneda() {
         return tipo_nomneda;
     }
@@ -71,20 +83,12 @@ public class Cuenta {
         this.tipo_nomneda = tipo_nomneda;
     }
 
-    public String getFecha_apertura() {
-        return fecha_apertura;
+    public double getMonto() {
+        return monto;
     }
 
-    public void setFecha_apertura(String fecha_apertura) {
-        this.fecha_apertura = fecha_apertura;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
+    public void setMonto(double monto) {
+        this.monto = monto;
     }
 
     public Cliente getCliente() {
@@ -93,6 +97,14 @@ public class Cuenta {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public List<Transferencia> getTransferencia() {
+        return transferencia;
+    }
+
+    public void setTransferencia(List<Transferencia> transferencia) {
+        this.transferencia = transferencia;
     }
 
     public List<Movimiento> getMovimientos() {

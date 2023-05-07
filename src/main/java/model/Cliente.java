@@ -10,15 +10,19 @@ import java.util.List;
 public class Cliente {
     private int id;
     private String nombre;
+    private String apellido;
+    private int dni;
+    private int telefono;
     private String direccion;
-    private String telefono;
     private List<Cuenta> cuenta;
 
-    public Cliente(int id, String nombre, String direccion, String telefono) {
+    public Cliente(int id, String nombre, String apellido, int dni, int telefono, String direccion) {
         this.id = id;
         this.nombre = nombre;
-        this.direccion = direccion;
+        this.apellido = apellido;
+        this.dni = dni;
         this.telefono = telefono;
+        this.direccion = direccion;
         this.cuenta = new ArrayList<>();
     }
 
@@ -38,20 +42,36 @@ public class Cliente {
         this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
     public String getDireccion() {
         return direccion;
     }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
     }
 
     public List<Cuenta> getCuenta() {
@@ -62,6 +82,7 @@ public class Cliente {
         this.cuenta = cuenta;
     }
 
+    
     
     
 }
