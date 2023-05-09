@@ -94,7 +94,7 @@ public class CuentaDAO {
         return c;
     }
     
-    //buscar el Id del cliente pasándole el número de cuenta
+    //buscar el id del cliente pasándole el número de cuenta 
     public int buscarIdCliente(String numeroCuenta) {
     int idCuenta = -1;
     try {
