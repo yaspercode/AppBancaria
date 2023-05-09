@@ -12,7 +12,9 @@ import view.frmMenu;
 
 public class LoginController implements ActionListener{
     private frmLogin formularioLogin;
+    private frmMenu formularioMenu;
     private CuentaDAO cuentaDAO;
+    private MenuController menuController;
 
     public LoginController(frmLogin formularioLogin) {
         //Look and feel Mejora la Apariencia de la aplicación
@@ -22,13 +24,15 @@ public class LoginController implements ActionListener{
         this.formularioLogin.setLocationRelativeTo(null);//Establecer en el centro
         this.formularioLogin.btnLogin.addActionListener(this);
         //Imagen de login
-        ImageIcon img1=new ImageIcon("src/main/java/view/bank.png");
+//        ImageIcon img1=new ImageIcon("src/main/java/view/bank.png");
         ImageIcon img2=new ImageIcon("src/main/java/view/credit-card.png");
         ImageIcon img3=new ImageIcon("src/main/java/view/password.png");
-        frmLogin.lbImagen1.setIcon(img1);
-        frmLogin.lbImagen2.setIcon(img2);
-        frmLogin.lbImagen3.setIcon(img3);
-        
+//        this.formularioLogin.lbImagen1.setIcon(img1);
+        this.formularioLogin.lbImagen2.setIcon(img2);
+        this.formularioLogin.lbImagen3.setIcon(img3);
+        //Inicializamos el controlador del Menú
+        formularioMenu=new frmMenu();
+        menuController = new MenuController(formularioMenu);
     }
 
     @Override
@@ -52,7 +56,9 @@ public class LoginController implements ActionListener{
             boolean esValida=cuentaDAO.validarCuenta(cuentaModel);
             //Mostrar el resultado
             if(esValida){
-                frmMenu formularioMenu=new frmMenu();
+                formularioMenu=new frmMenu();
+                //Se envía el número de cuenta al controlador Menú
+                menuController.obtenerNumCuenta(numeroCuenta);
                 formularioMenu.setVisible(true);
                 formularioLogin.setVisible(false);
             }else{

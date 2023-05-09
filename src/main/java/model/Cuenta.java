@@ -115,6 +115,13 @@ public class Cuenta {
         this.movimientos = movimientos;
     }
 
+    @Override
+    public String toString() {
+        return "Cuenta{" + "id=" + id + '}';
+    }
+
     
+
+
     
 }
