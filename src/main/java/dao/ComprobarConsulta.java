@@ -9,9 +9,6 @@ import model.Cuenta;
  */
 public class ComprobarConsulta {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         String numeroCuenta = "1059385321587439"; // un número de cuenta válido para probar
     CuentaDAO cuentaDAO = new CuentaDAO();
