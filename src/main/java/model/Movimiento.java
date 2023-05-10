@@ -86,8 +86,6 @@ public class Movimiento {
     public String toString() {
         return "Movimiento{" + "id=" + id + ", tipo_trasnferencia=" + tipo_trasnferencia + ", monto=" + monto + ", comision=" + comision + ", descripcion=" + descripcion + ", fecha=" + fecha + ", cuenta=" + cuenta + '}';
     }
-
-    
     
     
 }

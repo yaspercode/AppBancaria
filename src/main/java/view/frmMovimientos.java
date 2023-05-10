@@ -73,7 +73,6 @@ public class frmMovimientos extends javax.swing.JFrame {
         lbMonto.setBackground(new java.awt.Color(0, 0, 0));
         lbMonto.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lbMonto.setForeground(new java.awt.Color(0, 0, 0));
-        lbMonto.setText("S/ 200");
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
@@ -83,7 +82,6 @@ public class frmMovimientos extends javax.swing.JFrame {
         lbNumeroCuenta.setBackground(new java.awt.Color(0, 0, 0));
         lbNumeroCuenta.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lbNumeroCuenta.setForeground(new java.awt.Color(0, 0, 0));
-        lbNumeroCuenta.setText("**** **** **** 3456");
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -111,9 +109,9 @@ public class frmMovimientos extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbNumeroCuenta, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbMonto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbMonto, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                            .addComponent(lbNumeroCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel8))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -123,13 +121,13 @@ public class frmMovimientos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbNombreCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lbMonto))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbMonto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(lbNumeroCuenta))
+                    .addComponent(lbNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
