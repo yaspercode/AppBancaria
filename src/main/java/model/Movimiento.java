@@ -13,6 +13,9 @@ public class Movimiento {
     private String fecha;
     private Cuenta cuenta;
 
+    public Movimiento() {
+    }
+
     public Movimiento(int id, String tipo_trasnferencia, double monto, double comision, String descripcion, String fecha, Cuenta cuenta) {
         this.id = id;
         this.tipo_trasnferencia = tipo_trasnferencia;
@@ -77,6 +80,11 @@ public class Movimiento {
 
     public void setCuenta(Cuenta cuenta) {
         this.cuenta = cuenta;
+    }
+
+    @Override
+    public String toString() {
+        return "Movimiento{" + "id=" + id + ", tipo_trasnferencia=" + tipo_trasnferencia + ", monto=" + monto + ", comision=" + comision + ", descripcion=" + descripcion + ", fecha=" + fecha + ", cuenta=" + cuenta + '}';
     }
 
     

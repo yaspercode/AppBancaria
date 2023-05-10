@@ -2,6 +2,7 @@ package dao;
 import dao.CuentaDAO;
 import java.util.List;
 import model.Cuenta;
+import model.Movimiento;
 
 /**
  *
@@ -10,11 +11,11 @@ import model.Cuenta;
 public class ComprobarConsulta {
 
     public static void main(String[] args) {
-        String numeroCuenta = "1059385321587439"; // un número de cuenta válido para probar
-    CuentaDAO cuentaDAO = new CuentaDAO();
-    int idCliente = cuentaDAO.buscarIdCliente(numeroCuenta);
-    System.out.println("El ID de cliente asociado con la cuenta " + numeroCuenta + " es: " + idCliente);
-        
+//        String numeroCuenta = "1059385321587439"; // un número de cuenta válido para probar
+//    CuentaDAO cuentaDAO = new CuentaDAO();
+//    int idCliente = cuentaDAO.buscarIdCliente(numeroCuenta);
+//    System.out.println("El ID de cliente asociado con la cuenta " + numeroCuenta + " es: " + idCliente);
+//        
         
         
 //        CuentaDAO cuentaDAO = new CuentaDAO();
@@ -35,6 +36,15 @@ public class ComprobarConsulta {
 //        System.out.println("Monto: " + cuenta.getMonto());
 //        System.out.println("--------");
 //    }
+    
+    MovimientosDAO movimientosDAO = new MovimientosDAO();
+        List<Movimiento> lista = movimientosDAO.listar(1); // Cambia el valor de "id" según tus necesidades
+    for (Movimiento m : lista) {
+        System.out.println("Fecha: " + m.getFecha());
+        System.out.println("Tipo de transsación: " + m.getTipo_trasnferencia());
+        System.out.println("Monto: " + m.getMonto());
+        System.out.println("--------");
+    }
     
     }
     
