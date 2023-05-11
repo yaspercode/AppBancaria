@@ -24,7 +24,7 @@ A continuación, se muestra algunas de las pantallas que ilustran las funcionali
 
 ### Login
 
-![Imagen de Login](https://i.imgur.com/AKjnT6d.png)
+![Imagen de Login](https://i.imgur.com/Z1WitHH.png)
 
 ### Menú
 
