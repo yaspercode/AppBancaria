@@ -24,4 +24,9 @@ A continuación, se muestra algunas de las pantallas que ilustran las funcionali
 
 ### Login
 
-![Captura de pantalla de la app bancaria](https://i.imgur.com/ZY8Rs4H.png)
+[Imgur](https://i.imgur.com/Z1WitHH.png)
+
+### Menú
+
+[Imgur](https://i.imgur.com/AKjnT6d.png)
+
