@@ -4,10 +4,10 @@ Este proyecto en java es una implementación simplificada de un sistema de trans
 
 ## Funcionalidades
 
-- Iniciar sesión: Los usuarios pueden ingresar a la aplicación ingresando su numero de cuenta y su clave.
+- Iniciar sesión: Los usuarios pueden ingresar a la aplicación ingresando su número de cuenta y su clave.
 - Consultar saldo: Los usuarios pueden verificar su saldo disponible.
 - Realizar transferencias: Las cuentas bancarias pueden realizar transferencias de fondos a otras cuentas del mismo banco. Se tiene en cuenta la tasa de cambio si las monedas de las cuentas son diferentes y se aplica una comisión basada en el monto de la transferencia.
-- Historial de transacciones: Pemite al usuario realizar un seguimiento de todas las transaciones y actividades realizadas en la cuenta.
+- Historial de transacciones: Permite al usuario realizar un seguimiento de todas las transacciones y actividades realizadas en la cuenta.
 
 ## Tecnologías utilizadas
 
