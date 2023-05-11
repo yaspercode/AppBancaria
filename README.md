@@ -1,13 +1,13 @@
 # AppBancaria
 
-Este proyecto es una aplicación bancaria desarrollada en Java que permite a los usuarios realizar operaciones bancarias como consultar saldo y transferencias.
+Este proyecto en java es una implementación simplificada de un sistema de transferencias bancarias entre cuentas y no representa un sistema de banco real. Permite realizar transferencias entre diferentes cuentas, teniendo en cuenta la tasa de cambio y la comisión.
 
 ## Funcionalidades
 
 - Iniciar sesión: Los usuarios pueden ingresar a la aplicación ingresando su numero de cuenta y su clave.
 - Consultar saldo: Los usuarios pueden verificar su saldo disponible.
-- Realizar transferencias: Los usuarios pueden transferir dinero a sus mismas u otras cuentas del mismo banco.
-- Historial de transacciones
+- Realizar transferencias: Las cuentas bancarias pueden realizar transferencias de fondos a otras cuentas del mismo banco. Se tiene en cuenta la tasa de cambio si las monedas de las cuentas son diferentes y se aplica una comisión basada en el monto de la transferencia.
+- Historial de transacciones: Pemite al usuario realizar un seguimiento de todas las transaciones y actividades realizadas en la cuenta.
 
 ## Tecnologías utilizadas
 
@@ -20,7 +20,7 @@ Este proyecto fue creado por Miguel Mallqui Diaz como proyecto para el curso de 
 
 ## Capturas de pantallas
 
-A continuación, se muestra algunas de las pantallas que ilustran las funcionalidades de la aplicación.
+A continuación, se muestran las interfaces que ilustran las funcionalidades de la aplicación.
 
 ### Login
 
