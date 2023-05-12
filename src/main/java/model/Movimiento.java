@@ -9,6 +9,7 @@ public class Movimiento {
     private String tipo_trasnferencia; //Entre mis cuentas o a otra persona del mismo banco
     private double monto;
     private double comision;
+    private double tasaCambio;
     private String descripcion;
     private String fecha;
     private Cuenta cuenta;
@@ -16,16 +17,31 @@ public class Movimiento {
     public Movimiento() {
     }
 
-    public Movimiento(int id, String tipo_trasnferencia, double monto, double comision, String descripcion, String fecha, Cuenta cuenta) {
+    public Movimiento(int id, String tipo_trasnferencia, double monto, double comision, double tasaCambio, String descripcion, String fecha, Cuenta cuenta) {
         this.id = id;
         this.tipo_trasnferencia = tipo_trasnferencia;
         this.monto = monto;
         this.comision = comision;
+        this.tasaCambio = tasaCambio;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.cuenta = cuenta;
     }
 
+    
+    public void convertir(String tipoMoneda, String monedaDestino) {
+        double tasaCambio;
+        if (tipoMoneda.equals("USD") && monedaDestino.equals("PEN")) {
+            tasaCambio = 3.71;
+        } else if (tipoMoneda.equals("PEN") && monedaDestino.equals("USD")) {
+            tasaCambio = 0.27;
+        } else {
+            tasaCambio = 1;
+        }
+        monto = monto * tasaCambio;
+        tipoMoneda = monedaDestino;
+    }
+    
     public int getId() {
         return id;
     }
@@ -81,6 +97,16 @@ public class Movimiento {
     public void setCuenta(Cuenta cuenta) {
         this.cuenta = cuenta;
     }
+
+    public double getTasaCambio() {
+        return tasaCambio;
+    }
+
+    public void setTasaCambio(double tasaCambio) {
+        this.tasaCambio = tasaCambio;
+    }
+    
+    
 
     @Override
     public String toString() {

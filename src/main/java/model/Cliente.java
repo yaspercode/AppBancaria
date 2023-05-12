@@ -16,6 +16,10 @@ public class Cliente {
     private String direccion;
     private List<Cuenta> cuenta;
 
+    public Cliente() {
+    }
+
+    
     public Cliente(int id, String nombre, String apellido, int dni, int telefono, String direccion) {
         this.id = id;
         this.nombre = nombre;
