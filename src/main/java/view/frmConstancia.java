@@ -1,5 +1,7 @@
 package view;
 
+import controller.ConstanciaController;
+
 
 /**
  *
@@ -12,6 +14,7 @@ public class frmConstancia extends javax.swing.JFrame {
      */
     public frmConstancia() {
         initComponents();
+        ConstanciaController contanciaController = new ConstanciaController(this);
     }
 
     /**
@@ -25,7 +28,7 @@ public class frmConstancia extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        btnClose = new javax.swing.JButton();
+        btnInicio = new javax.swing.JButton();
         btnUltimoMovimiento = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -47,11 +50,11 @@ public class frmConstancia extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Operaciones:");
 
-        btnClose.setBackground(new java.awt.Color(254, 79, 0));
-        btnClose.setText("Cerrar ventana");
-        btnClose.addActionListener(new java.awt.event.ActionListener() {
+        btnInicio.setBackground(new java.awt.Color(254, 79, 0));
+        btnInicio.setText("Inicio");
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCloseActionPerformed(evt);
+                btnInicioActionPerformed(evt);
             }
         });
 
@@ -106,7 +109,7 @@ public class frmConstancia extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnUltimoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -160,7 +163,7 @@ public class frmConstancia extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUltimoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
@@ -179,9 +182,9 @@ public class frmConstancia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCloseActionPerformed
+    }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnUltimoMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoMovimientoActionPerformed
         // TODO add your handling code here:
@@ -238,7 +241,7 @@ public class frmConstancia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton btnClose;
+    public static javax.swing.JButton btnInicio;
     public static javax.swing.JButton btnUltimoMovimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

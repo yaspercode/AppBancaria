@@ -50,7 +50,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnClose" min="-2" pref="164" max="-2" attributes="0"/>
+                                  <Component id="btnInicio" min="-2" pref="164" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btnUltimoMovimiento" min="-2" pref="164" max="-2" attributes="0"/>
                               </Group>
@@ -120,7 +120,7 @@
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnClose" alignment="3" min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="btnInicio" alignment="3" min="-2" pref="88" max="-2" attributes="0"/>
                       <Component id="btnUltimoMovimiento" alignment="3" min="-2" pref="88" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
@@ -143,15 +143,15 @@
             <Property name="text" type="java.lang.String" value="Operaciones:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnClose">
+        <Component class="javax.swing.JButton" name="btnInicio">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="4f" red="fe" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cerrar ventana"/>
+            <Property name="text" type="java.lang.String" value="Inicio"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCloseActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInicioActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

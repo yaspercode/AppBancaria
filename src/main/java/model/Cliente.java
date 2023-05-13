@@ -1,8 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author HP
@@ -11,23 +8,14 @@ public class Cliente {
     private int id;
     private String nombre;
     private String apellido;
-    private int dni;
-    private int telefono;
-    private String direccion;
-    private List<Cuenta> cuenta;
 
     public Cliente() {
     }
 
-    
-    public Cliente(int id, String nombre, String apellido, int dni, int telefono, String direccion) {
+    public Cliente(int id, String nombre, String apellido) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.dni = dni;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.cuenta = new ArrayList<>();
     }
 
     public int getId() {
@@ -54,39 +42,4 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public int getDni() {
-        return dni;
-    }
-
-    public void setDni(int dni) {
-        this.dni = dni;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public List<Cuenta> getCuenta() {
-        return cuenta;
-    }
-
-    public void setCuenta(List<Cuenta> cuenta) {
-        this.cuenta = cuenta;
-    }
-
-    
-    
-    
 }

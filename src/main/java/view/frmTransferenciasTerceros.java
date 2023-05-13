@@ -1,5 +1,7 @@
 package view;
 
+import controller.TransfeTercerosController;
+
 
 /**
  *
@@ -12,6 +14,7 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
      */
     public frmTransferenciasTerceros() {
         initComponents();
+        TransfeTercerosController transfeTercerosController = new TransfeTercerosController(this);
     }
 
     /**
@@ -32,7 +35,7 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtMonto = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        btnInicio1 = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
         txtMonto1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -77,11 +80,11 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Cuenta de destino:");
 
-        btnInicio1.setBackground(new java.awt.Color(254, 79, 0));
-        btnInicio1.setText("Siguiente");
-        btnInicio1.addActionListener(new java.awt.event.ActionListener() {
+        btnSiguiente.setBackground(new java.awt.Color(254, 79, 0));
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInicio1ActionPerformed(evt);
+                btnSiguienteActionPerformed(evt);
             }
         });
 
@@ -113,7 +116,7 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
                         .addComponent(txtMonto1, javax.swing.GroupLayout.Alignment.LEADING)))
@@ -145,7 +148,7 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
 
@@ -167,9 +170,9 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInicioActionPerformed
 
-    private void btnInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicio1ActionPerformed
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnInicio1ActionPerformed
+    }//GEN-LAST:event_btnSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,7 +226,7 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnInicio;
-    public static javax.swing.JButton btnInicio1;
+    public static javax.swing.JButton btnSiguiente;
     private javax.swing.JComboBox<String> cbCuentaOrigen;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -1,5 +1,7 @@
 package view;
 
+import controller.TransferenciaController;
+
 
 /**
  *
@@ -12,6 +14,7 @@ public class frmTransferencias extends javax.swing.JFrame {
      */
     public frmTransferencias() {
         initComponents();
+        TransferenciaController transferenciaController = new TransferenciaController(this);
     }
 
     /**

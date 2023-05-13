@@ -1,5 +1,7 @@
 package view;
 
+import controller.TransfeEntreCuentasController;
+
 
 /**
  *
@@ -12,6 +14,7 @@ public class frmTransferenciasEntreCuentas extends javax.swing.JFrame {
      */
     public frmTransferenciasEntreCuentas() {
         initComponents();
+        TransfeEntreCuentasController transfeEntreCuentasController = new TransfeEntreCuentasController(this);
     }
 
     /**
@@ -33,7 +36,7 @@ public class frmTransferenciasEntreCuentas extends javax.swing.JFrame {
         txtMonto = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cbCuentaDestino = new javax.swing.JComboBox<>();
-        btnInicio1 = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,11 +79,11 @@ public class frmTransferenciasEntreCuentas extends javax.swing.JFrame {
 
         cbCuentaDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnInicio1.setBackground(new java.awt.Color(254, 79, 0));
-        btnInicio1.setText("Siguiente");
-        btnInicio1.addActionListener(new java.awt.event.ActionListener() {
+        btnSiguiente.setBackground(new java.awt.Color(254, 79, 0));
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInicio1ActionPerformed(evt);
+                btnSiguienteActionPerformed(evt);
             }
         });
 
@@ -103,7 +106,7 @@ public class frmTransferenciasEntreCuentas extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -128,7 +131,7 @@ public class frmTransferenciasEntreCuentas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -150,9 +153,9 @@ public class frmTransferenciasEntreCuentas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInicioActionPerformed
 
-    private void btnInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicio1ActionPerformed
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnInicio1ActionPerformed
+    }//GEN-LAST:event_btnSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,15 +201,15 @@ public class frmTransferenciasEntreCuentas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnInicio;
-    public static javax.swing.JButton btnInicio1;
-    private javax.swing.JComboBox<String> cbCuentaDestino;
-    private javax.swing.JComboBox<String> cbCuentaOrigen;
+    public static javax.swing.JButton btnSiguiente;
+    public static javax.swing.JComboBox<String> cbCuentaDestino;
+    public static javax.swing.JComboBox<String> cbCuentaOrigen;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbNombreCliente;
-    private javax.swing.JTextField txtMonto;
+    public static javax.swing.JTextField txtMonto;
     // End of variables declaration//GEN-END:variables
 }

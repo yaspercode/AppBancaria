@@ -59,7 +59,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="btnInicio" min="-2" pref="164" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnInicio1" min="-2" pref="164" max="-2" attributes="0"/>
+                          <Component id="btnSiguiente" min="-2" pref="164" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jScrollPane1" alignment="0" pref="339" max="32767" attributes="0"/>
@@ -96,7 +96,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnInicio" alignment="3" min="-2" pref="88" max="-2" attributes="0"/>
-                      <Component id="btnInicio1" alignment="3" min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="btnSiguiente" alignment="3" min="-2" pref="88" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
@@ -205,7 +205,7 @@
             <Property name="text" type="java.lang.String" value="Cuenta de destino:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnInicio1">
+        <Component class="javax.swing.JButton" name="btnSiguiente">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="4f" red="fe" type="rgb"/>
@@ -213,7 +213,7 @@
             <Property name="text" type="java.lang.String" value="Siguiente"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInicio1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSiguienteActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

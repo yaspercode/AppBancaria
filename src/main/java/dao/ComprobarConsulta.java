@@ -2,7 +2,6 @@ package dao;
 import dao.CuentaDAO;
 import java.util.List;
 import model.Cuenta;
-import model.Movimiento;
 
 /**
  *
@@ -37,14 +36,6 @@ public class ComprobarConsulta {
 //        System.out.println("--------");
 //    }
     
-    MovimientosDAO movimientosDAO = new MovimientosDAO();
-        List<Movimiento> lista = movimientosDAO.listar(1); // Cambia el valor de "id" según tus necesidades
-    for (Movimiento m : lista) {
-        System.out.println("Fecha: " + m.getFecha());
-        System.out.println("Tipo de transsación: " + m.getTipo_trasnferencia());
-        System.out.println("Monto: " + m.getMonto());
-        System.out.println("--------");
-    }
     
     }
     

@@ -31,7 +31,7 @@ public class CuentaDAO {
             }
             String sql = "SELECT COUNT(*) AS Cantidad FROM cuenta WHERE numero_cuenta=? AND clave=?;";
             ps = con.prepareStatement(sql);
-            ps.setString(1, c.getNumero_cuenta());
+            ps.setString(1, c.getNumeroCuenta());
             ps.setInt(2, c.getClave());
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -56,16 +56,16 @@ public class CuentaDAO {
                 JOptionPane.showMessageDialog(null, "No se puedo establecer la conexión con la base de datos");
                 return lista;
             }
-            String sql = "select c.tipo_cuenta, c.numero_cuenta, c.monto\n" +
+            String sql = "select c.tipo, c.numero_cuenta, c.saldo\n" +
                 "from cuenta c\n" +
-                "where c.cliente_id="+id;
+                "where c.id_cliente="+id;
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 c = new Cuenta();
-                c.setTipo_cuenta(rs.getString(1));
-                c.setNumero_cuenta(rs.getString(2));
-                c.setMonto(rs.getDouble(3));
+                c.setTipo(rs.getString(1));
+                c.setNumeroCuenta(rs.getString(2));
+                c.setSaldo(rs.getDouble(3));
                 lista.add(c);
             }
         }catch(SQLException e){
@@ -74,41 +74,41 @@ public class CuentaDAO {
         return lista;
     }
     
-    public Cuenta getOne(String num_cuenta) {
+    public String obtenerNombreCliente(int idCliente) {
         c =null; 
+        String nombreCompleto="";
         try {
             con=MYSQLConexion.getConexion();
-        String sql="select c.cliente_id, c.tipo_cuenta, c.numero_cuenta, c.monto from cuenta c where c.numero_cuenta='"+num_cuenta+"'";
+        String sql="SELECT CONCAT(c.nombre, ' ', c.apellido) AS nombre_completo\n" +
+        "FROM cliente c\n" +
+        "INNER JOIN cuenta cu ON c.id_cliente = cu.id_cliente\n" +
+        "WHERE cu.id_cliente ="+idCliente+";";
          ps=con.prepareStatement(sql);
          rs=ps.executeQuery();
          while(rs.next()){
-         c= new Cuenta();
-         c.setId(rs.getInt(1));
-         c.setTipo_cuenta(rs.getString(2));
-         c.setNumero_cuenta(rs.getString(3));
-         c.setMonto(rs.getDouble(4));
+         nombreCompleto = rs.getString("nombre_completo");
          }
      } catch (SQLException e) {
              e.printStackTrace();
      }
-        return c;
+        return nombreCompleto;
     }
     
     //buscar el id del cliente pasándole el número de cuenta 
     public int buscarIdCliente(String numeroCuenta) {
-    int idCuenta = -1;
+    int idCliente = -1;
     try {
         con = MYSQLConexion.getConexion();
         if (con == null) {
             JOptionPane.showMessageDialog(null, "No se puedo establecer la conexión con la base de datos");
-            return idCuenta;
+            return idCliente;
         }
-        String sql = "SELECT c.cliente_id FROM cuenta c WHERE numero_cuenta=?";
+        String sql = "SELECT c.id_cliente FROM cuenta c WHERE c.numero_cuenta=?";
         ps = con.prepareStatement(sql);
         ps.setString(1, numeroCuenta);
         rs = ps.executeQuery();
         if (rs.next()) {
-            idCuenta = rs.getInt("cliente_id");
+            idCliente = rs.getInt("id_cliente");
         }
         rs.close();
         ps.close();
@@ -116,7 +116,9 @@ public class CuentaDAO {
     } catch (SQLException e) {
         e.printStackTrace();
     }
-    return idCuenta;
+    return idCliente;
 }
 
+    
+//    SELECT c.numero_cuenta FROM cuenta c WHERE c.id_cliente=5;
 }

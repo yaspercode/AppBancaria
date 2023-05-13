@@ -1,19 +1,19 @@
 package controller;
 
 import dao.CuentaDAO;
-import dao.MovimientosDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import view.frmMenu;
 import model.Cuenta;
-import model.Movimiento;
+import model.Transferencia;
 import view.frmLogin;
 import view.frmMovimientos;
-import controller.MoviminetosController;
+import dao.TransferenciaDAO;
+import javax.swing.JOptionPane;
+import model.DatosFormulario;
+import view.frmTransferencias;
 
 /**
  *
@@ -21,83 +21,86 @@ import controller.MoviminetosController;
  */
 public class MenuController implements ActionListener{
     private frmMenu formularioMenu;
-    private frmLogin formularioLogin;
     private frmMovimientos formularioMovimientos;
-    CuentaDAO cuentaDAO = new CuentaDAO();
-    MovimientosDAO movimientosDAO = new MovimientosDAO();
-    Movimiento movimiento= new Movimiento();
-    Cuenta cuenta=new Cuenta();
-    private String numeroCuenta="";
-    int id=0;
+    private frmTransferencias formularioTransferencias;
+    private frmLogin formularioLogin;
+    private DatosFormulario datosFormulario;
+    private CuentaDAO cuentaDAO = new CuentaDAO();
+    private TransferenciaDAO transferenciaDAO = new TransferenciaDAO();
+    
     
     public MenuController(frmMenu formularioMenu) {
         this.formularioMenu = formularioMenu;
-//        this.formularioMenu.setResizable(false);//Desabilirar el cambio de tamaño
-//        this.formularioMenu.setLocationRelativeTo(null);//Establecer en el centro
-        this.formularioMenu.btnTransferencia.addActionListener(this);
+        this.formularioMenu.setResizable(false);//Desabilirar el cambio de tamaño
+        this.formularioMenu.setLocationRelativeTo(null);//Establecer en el centro
         this.formularioMenu.btnMovimiento.addActionListener(this);
+        this.formularioMenu.btnTransferencia.addActionListener(this);
         this.formularioMenu.btnCerrarSesion.addActionListener(this);
-        //Inicializamos el controlador del movimineto
-        this.formularioMovimientos=new frmMovimientos();
-        
-//        moviminetosController = new MoviminetosController(formularioMovimientos);
-        obtenerIdCuenta(numeroCuenta);
-        ListarTablaMovimientos(id);
+        this.datosFormulario = DatosFormulario.getInstance();
         ListarTablaCuenta();
+        NombreCliente();
     }
     
-    public void obtenerIdCuenta(String numeroCuenta){
-        id=cuentaDAO.buscarIdCliente(numeroCuenta);
-        ListarTablaCuenta();
-//        frmMovimientos formularioMovimientos=new frmMovimientos();
-        formularioMovimientos.lbNumeroCuenta.setText(numeroCuenta);
-        MoviminetosController moviminetosController= new MoviminetosController(formularioMovimientos);
-        moviminetosController.setNumeroCuenta(numeroCuenta);
-        ListarTablaMovimientos(id);
+    public void NombreCliente(){
+        String nombre = datosFormulario.getNombreCliente();
+        formularioMenu.lbNombreCompleto.setText(nombre);
     }
-    
-    
-    public void ListarTablaMovimientos(int id){
-//        frmMovimientos formularioMovimientos=new frmMovimientos();
-    DefaultTableModel modelo = (DefaultTableModel) formularioMovimientos.tabla.getModel();
-    modelo.setRowCount(0);
-    List<Movimiento> lista = movimientosDAO.listar(id);
-    for (int i = 0; i < lista.size(); i++) {
-        Object o[] = {lista.get(i).getFecha(), lista.get(i).getTipo_trasnferencia(), lista.get(i).getMonto()};
-        modelo.addRow(o);
-    }
-    modelo.fireTableDataChanged();//cualquier cambio se refleje
-    }
-    
-    
     public void ListarTablaCuenta(){
-    DefaultTableModel modelo = (DefaultTableModel) formularioMenu.tablaCuenta.getModel();
-    modelo.setRowCount(0);
-    List<Cuenta> lista = cuentaDAO.listar(id);
-    for (int i = 0; i < lista.size(); i++) {
-        Object o[] = {lista.get(i).getTipo_cuenta(), lista.get(i).getNumero_cuenta(), lista.get(i).getMonto()};
-        modelo.addRow(o);
+        int idCliente = datosFormulario.getIdCliente();
+        DefaultTableModel modelo = (DefaultTableModel) formularioMenu.tablaCuenta.getModel();
+        modelo.setRowCount(0);
+        List<Cuenta> lista = cuentaDAO.listar(idCliente);
+        for (int i = 0; i < lista.size(); i++) {
+            Object o[] = {lista.get(i).getTipo(), lista.get(i).getNumeroCuenta(), lista.get(i).getSaldo()};
+            modelo.addRow(o);
+        }
+        modelo.fireTableDataChanged();//cualquier cambio se refleje
     }
-    modelo.fireTableDataChanged();//cualquier cambio se refleje
+    
+    public void ListarTablaMovimientos(){
+        String numeroCuenta = datosFormulario.getNumeroCuenta();
+        DefaultTableModel modelo = (DefaultTableModel) formularioMovimientos.tabla.getModel();
+        modelo.setRowCount(0);
+        List<Transferencia> lista = transferenciaDAO.listar(numeroCuenta);
+        for (int i = 0; i < lista.size(); i++) {
+            Object o[] = {lista.get(i).getFecha(), lista.get(i).getTipoTransferencia(), lista.get(i).getTotal()};
+            modelo.addRow(o);
+        }
+        modelo.fireTableDataChanged();//cualquier cambio se refleje
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(formularioMenu.btnCerrarSesion)) {
-//            formularioLogin=new frmLogin();
-//            formularioMenu=new frmMenu();
-//            formularioLogin.setVisible(true);
-//            formularioMenu.setVisible(false);
+            formularioLogin = new frmLogin();
+            formularioLogin.setVisible(true);
+            formularioMenu.dispose();
         }
         if (e.getSource().equals(formularioMenu.btnTransferencia)) {
+            formularioTransferencias = new frmTransferencias();
+            formularioTransferencias.setVisible(true);
+            formularioMenu.dispose();
         }
         if (e.getSource().equals(formularioMenu.btnMovimiento)) {
-            formularioMovimientos.setVisible(true);
-            formularioMovimientos.setResizable(false);//Desabilirar el cambio de tamaño
-            formularioMovimientos.setLocationRelativeTo(null);//Establecer en el centro
-//            this.formularioMenu.setVisible(false);
+            //Recuperar datos de menoria
+            String numeroCuenta = datosFormulario.getNumeroCuenta();
+            int idCliente = datosFormulario.getIdCliente();
+            //Descubrimos la fila selecionada
+            int filaSeleccionada = formularioMenu.tablaCuenta.getSelectedRow();
+            System.out.println("Fila selecionada: "+filaSeleccionada);
+            if(filaSeleccionada != -1){
+                String numCuenta = formularioMenu.tablaCuenta.getValueAt(filaSeleccionada, 1).toString();
+                String monto = formularioMenu.tablaCuenta.getValueAt(filaSeleccionada, 2).toString();
+                formularioMovimientos = new frmMovimientos();
+                formularioMovimientos.lbNumeroCuenta.setText(numCuenta);
+                formularioMovimientos.lbMonto.setText(monto);
+                ListarTablaMovimientos();
+                formularioMovimientos.setVisible(true);
+                this.formularioMenu.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Debes seleccionar una fila de la tabla número de cuenta");
+            }
         }
     }
 
-    
 }

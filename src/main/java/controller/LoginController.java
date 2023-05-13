@@ -8,56 +8,60 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import view.frmLogin;
 import model.Cuenta;
+import model.DatosFormulario;
 import view.frmMenu;
 
 public class LoginController implements ActionListener{
     private frmLogin formularioLogin;
     private frmMenu formularioMenu;
-    private CuentaDAO cuentaDAO;
-    MenuController menuController;
-    String numeroCuenta="";
-
+    private DatosFormulario datosFormulario;
+    private CuentaDAO cuentaDAO = new CuentaDAO();
+    private Cuenta cuenta = new Cuenta();
+    
     public LoginController(frmLogin formularioLogin) {
-        //Look and feel Mejora la Apariencia de la aplicación
-        FlatLightLaf.setup();
+        FlatLightLaf.setup();//Look and feel Mejora la Apariencia de la aplicación
         this.formularioLogin = formularioLogin;
         this.formularioLogin.setResizable(false);//Desabilirar el cambio de tamaño
         this.formularioLogin.setLocationRelativeTo(null);//Establecer en el centro
         this.formularioLogin.btnLogin.addActionListener(this);
-        //Inicializamos el controlador del Menú
-//        formularioLogin=new frmLogin();
-        formularioMenu=new frmMenu();
-//        menuController = new MenuController(formularioMenu);
-        menuController = new MenuController(formularioMenu);
-        
+        this.datosFormulario = DatosFormulario.getInstance();
     }
-
+        
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(formularioLogin.btnLogin)){
             //Obtener datos del formualario
-            numeroCuenta = formularioLogin.txtNumeroCuenta.getText().trim();
+            String numeroCuenta = formularioLogin.txtNumeroCuenta.getText().trim();
             String clave = formularioLogin.txtClave.getText().trim();
+
             //Validar que la clave no este vacía o contenga caracteres especiales
             if(clave.isEmpty() || !clave.matches("\\d+")){
                 JOptionPane.showMessageDialog(formularioLogin, "Ingrese una clave válida");
                 return; //Terminar si la clave es invalida
             }
-            //Crear una instancia del dao y cuenta
-            cuentaDAO=new CuentaDAO();
-            Cuenta cuentaModel=new Cuenta();
-            //Almacenar en la instancia cuenta
-            cuentaModel.setNumero_cuenta(numeroCuenta);
-            cuentaModel.setClave(Integer.parseInt(clave));
+            
+            //Almacenar los datos en cuenta
+            cuenta.setNumeroCuenta(numeroCuenta);
+            cuenta.setClave(Integer.parseInt(clave));
+            
+            //Almacenando los datos necesario en memoria
+            datosFormulario.setNumeroCuenta(formularioLogin.txtNumeroCuenta.getText());
+            //Obtener el id del cliente
+            int id = cuentaDAO.buscarIdCliente(formularioLogin.txtNumeroCuenta.getText());
+            datosFormulario.setIdCliente(id);
+            
             //validar las credenciales
-            boolean esValida=cuentaDAO.validarCuenta(cuentaModel);
+            boolean esValida=cuentaDAO.validarCuenta(cuenta);
+            
             //Mostrar el resultado
             if(esValida){
-                frmMenu formularioMenu=new frmMenu();
-//                menuController = new MenuController(formularioMenu);
+                formularioMenu = new frmMenu();
+                //Mostrar datos en el label nombre completo
+                String nombreCompleto = cuentaDAO.obtenerNombreCliente(id);
+                datosFormulario.setNombreCliente(nombreCompleto);
+                formularioMenu.lbNombreCompleto.setText(datosFormulario.getNombreCliente());
                 formularioMenu.setVisible(true);
-                menuController.obtenerIdCuenta(numeroCuenta);
-                this.formularioLogin.setVisible(false);
+                this.formularioLogin.dispose();
             }else{
                 JOptionPane.showMessageDialog(formularioLogin, "Credenciales Invalidas");
             }

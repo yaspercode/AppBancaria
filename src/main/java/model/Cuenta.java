@@ -8,85 +8,44 @@ import java.util.ArrayList;
  * @author HP
  */
 public class Cuenta {
-    private int id;
-    private String numero_cuenta; //número de la cuenta 
-    private int clave; //clave de 6 digitos
+    private int idCuenta;
+    private String numeroCuenta; //número de la cuenta de 16 dígitos
+    private int clave; //clave de 6 dígitos
     private String fecha_creacion;
-    private String tipo_cuenta; //Ahorro o Corriente 
-    private String tipoMoneda; //PEN o USD    
-    private double monto;
+    private String tipo; //Tipo de Cuenta: Ahorro o Corriente 
+    private String moneda; //Tipo de moneda: PEN o USD    
     private Cliente cliente;
-    private List<Transferencia> transferencia;
-    private List<Movimiento> movimientos;
+    private double saldo;
 
     public Cuenta() {
     }
 
-    public Cuenta(int id, String numero_cuenta, int clave, String fecha_creacion, String tipo_cuenta, String tipoMoneda, double monto, Cliente cliente) {
-        this.id = id;
-        this.numero_cuenta = numero_cuenta;
+    public Cuenta(int idCuenta, String numeroCuenta, int clave, String fecha_creacion, String tipo, String moneda, Cliente cliente, double saldo) {
+        this.idCuenta = idCuenta;
+        this.numeroCuenta = numeroCuenta;
         this.clave = clave;
         this.fecha_creacion = fecha_creacion;
-        this.tipo_cuenta = tipo_cuenta;
-        this.tipoMoneda = tipoMoneda;
-        this.monto = monto;
+        this.tipo = tipo;
+        this.moneda = moneda;
         this.cliente = cliente;
-        this.transferencia = new ArrayList<>();
-        this.movimientos = new ArrayList<>();
-    }
-    
-    
-    //Obtener tasa de cambio dependiendo del tipo de moneda
-    public double obtenerTasaCambio(String tipoMonedaOrigen, String tipoMonedaDestino) {
-        double tasaCambio;
-        if (tipoMonedaOrigen.equals("USD") && tipoMonedaDestino.equals("PEN")) {
-            tasaCambio = 3.71;
-        } else if (tipoMonedaOrigen.equals("PEN") && tipoMonedaDestino.equals("USD")) {
-            tasaCambio = 0.27;
-        } else {
-            tasaCambio = 1;
-        }
-        return tasaCambio;
-    }
-    
-    //Calcular la comisión dependiendo del monto a depositar
-    public double calcularComision(double monto) {
-        double comision;
-        if (monto <= 1000) {
-            comision = 3.0;
-        } else if (monto <= 5000) {
-            comision = 6.0;
-        } else if (monto <= 10000) {
-            comision = 8.0;
-        } else {
-            comision = 10.0;
-        }
-        return comision;
-    }
-    
-    public double calcularTotalTransferencia(double monto, Cuenta cuentaDestino) {
-        double tasaCambio = obtenerTasaCambio(this.tipoMoneda, cuentaDestino.tipoMoneda);
-        double montoConvertido = monto * tasaCambio;
-        double comision = calcularComision(montoConvertido);
-        double montoTotal = montoConvertido + comision;
-        System.out.println("monto convertido: "+montoConvertido);
-        return montoTotal;
-    }
-    
-    public int getId() {
-        return id;
+        this.saldo = saldo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    
+    public int getIdCuenta() {
+        return idCuenta;
     }
 
-    public String getNumero_cuenta() {
-        return numero_cuenta;
+    public void setIdCuenta(int idCuenta) {
+        this.idCuenta = idCuenta;
     }
 
-    public void setNumero_cuenta(String numero_cuenta) {
-        this.numero_cuenta = numero_cuenta;
+    public String getNumeroCuenta() {
+        return numeroCuenta;
+    }
+
+    public void setNumeroCuenta(String numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
     }
 
     public int getClave() {
@@ -105,29 +64,28 @@ public class Cuenta {
         this.fecha_creacion = fecha_creacion;
     }
 
-    public String getTipo_cuenta() {
-        return tipo_cuenta;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setTipo_cuenta(String tipo_cuenta) {
-        this.tipo_cuenta = tipo_cuenta;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getTipoMoneda() {
-        return tipoMoneda;
+    public String getMoneda() {
+        return moneda;
     }
 
-    public void setTipoMoneda(String tipoMoneda) {
-        this.tipoMoneda = tipoMoneda;
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
     }
 
-
-    public double getMonto() {
-        return monto;
+    public double getSaldo() {
+        return saldo;
     }
 
-    public void setMonto(double monto) {
-        this.monto = monto;
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 
     public Cliente getCliente() {
@@ -137,30 +95,6 @@ public class Cuenta {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-    public List<Transferencia> getTransferencia() {
-        return transferencia;
-    }
-
-    public void setTransferencia(List<Transferencia> transferencia) {
-        this.transferencia = transferencia;
-    }
-
-    public List<Movimiento> getMovimientos() {
-        return movimientos;
-    }
-
-    public void setMovimientos(List<Movimiento> movimientos) {
-        this.movimientos = movimientos;
-    }
-
-    @Override
-    public String toString() {
-        return "Cuenta{" + "id=" + id + '}';
-    }
-
     
-
-
     
 }
