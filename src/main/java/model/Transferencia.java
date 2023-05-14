@@ -29,12 +29,6 @@ public class Transferencia {
         this.tipoTransferencia = tipoTransferencia;
     }
 
-
-//    public double calcularTotal(){
-        // Lógica para calcular el total de la transferencia
-        // utilizando la tasa de cambio, la comisión y el monto a transferir
-//    }
-    
     // Método para calcular la comisión según el monto a depositar
     public static double calcularComision(double monto) {
         if (monto <= 1000) {
@@ -51,21 +45,14 @@ public class Transferencia {
     // Método para obtener la tasa de cambio según el tipo de moneda de origen y destino
     public static double obtenerTasaCambio(String tipoMonedaOrigen, String tipoMonedaDestino) {
         if (tipoMonedaOrigen.equals("USD") && tipoMonedaDestino.equals("PEN")) {
-            return 3.71;
+            return 3.71;//cambiante
         } else if (tipoMonedaOrigen.equals("PEN") && tipoMonedaDestino.equals("USD")) {
-            return 0.27;
+            return 0.27;//cambiante
         } else {
             return 1.0;
         }
     }
     
-    public void realizarTransferencias(double monto){
-        // Lógica para realizar la transferencia de fondos
-        // Actualizar saldos de las cuentas de origen y destino
-        // Registrar la transferencia en la base de datos, etc.
-        
-    }
-
     public int getIdTransferencia() {
         return idTransferencia;
     }

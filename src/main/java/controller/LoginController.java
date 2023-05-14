@@ -45,7 +45,8 @@ public class LoginController implements ActionListener{
             cuenta.setClave(Integer.parseInt(clave));
             
             //Almacenando los datos necesario en memoria
-            datosFormulario.setNumeroCuenta(formularioLogin.txtNumeroCuenta.getText());
+            datosFormulario.setNumeroCuenta(numeroCuenta);
+            datosFormulario.setClave(clave);
             //Obtener el id del cliente
             int id = cuentaDAO.buscarIdCliente(formularioLogin.txtNumeroCuenta.getText());
             datosFormulario.setIdCliente(id);

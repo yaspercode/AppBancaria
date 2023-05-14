@@ -47,13 +47,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnInicio" min="-2" pref="164" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="btnUltimoMovimiento" min="-2" pref="164" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="btnInicio" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -61,8 +57,8 @@
                                       <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtCuentaOrigen" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtCuentaOrigen" pref="197" max="32767" attributes="0"/>
                                       <Component id="txtNumeroOperacion" max="32767" attributes="0"/>
                                       <Component id="txtCuentaDestino" max="32767" attributes="0"/>
                                   </Group>
@@ -81,12 +77,12 @@
                   <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lbMonto" max="32767" attributes="0"/>
                       <Component id="lbFecha" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="55" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -119,10 +115,7 @@
                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnInicio" alignment="3" min="-2" pref="88" max="-2" attributes="0"/>
-                      <Component id="btnUltimoMovimiento" alignment="3" min="-2" pref="88" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btnInicio" min="-2" pref="88" max="-2" attributes="0"/>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -152,20 +145,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInicioActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnUltimoMovimiento">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="4f" red="fe" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Ver &#xfa;ltimo movimiento"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUltimoMovimientoActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -205,6 +184,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="S/. 2,000.000"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lbFecha">
           <Properties>
@@ -219,6 +201,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Jueves 11 de mayo de 2023 - 9:22 am "/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
@@ -235,6 +220,12 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCuentaOrigen">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
@@ -251,6 +242,12 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCuentaDestino">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
@@ -267,6 +264,12 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNumeroOperacion">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

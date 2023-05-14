@@ -29,7 +29,6 @@ public class frmConstancia extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         btnInicio = new javax.swing.JButton();
-        btnUltimoMovimiento = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lbMonto = new javax.swing.JLabel();
@@ -58,14 +57,6 @@ public class frmConstancia extends javax.swing.JFrame {
             }
         });
 
-        btnUltimoMovimiento.setBackground(new java.awt.Color(254, 79, 0));
-        btnUltimoMovimiento.setText("Ver último movimiento");
-        btnUltimoMovimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUltimoMovimientoActionPerformed(evt);
-            }
-        });
-
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\AppBancaria\\src\\main\\java\\view\\Check Alt.jpg")); // NOI18N
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -88,15 +79,21 @@ public class frmConstancia extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Cuenta de origen:");
 
+        txtCuentaOrigen.setEditable(false);
+
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Cuenta de destino:");
 
+        txtCuentaDestino.setEditable(false);
+
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
         jLabel12.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("N° de operación:");
+
+        txtNumeroOperacion.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,20 +103,17 @@ public class frmConstancia extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnUltimoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
                                     .addComponent(jLabel12)
                                     .addComponent(jLabel10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCuentaOrigen)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCuentaOrigen, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
                                     .addComponent(txtNumeroOperacion)
                                     .addComponent(txtCuentaDestino)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -130,11 +124,11 @@ public class frmConstancia extends javax.swing.JFrame {
                         .addComponent(jLabel2)))
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 49, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbMonto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,9 +156,7 @@ public class frmConstancia extends javax.swing.JFrame {
                 .addGap(73, 73, 73)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUltimoMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
@@ -185,10 +177,6 @@ public class frmConstancia extends javax.swing.JFrame {
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInicioActionPerformed
-
-    private void btnUltimoMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoMovimientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUltimoMovimientoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,7 +230,6 @@ public class frmConstancia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnInicio;
-    public static javax.swing.JButton btnUltimoMovimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -250,10 +237,10 @@ public class frmConstancia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbFecha;
-    private javax.swing.JLabel lbMonto;
-    private javax.swing.JTextField txtCuentaDestino;
-    private javax.swing.JTextField txtCuentaOrigen;
-    private javax.swing.JTextField txtNumeroOperacion;
+    public static javax.swing.JLabel lbFecha;
+    public static javax.swing.JLabel lbMonto;
+    public static javax.swing.JTextField txtCuentaDestino;
+    public static javax.swing.JTextField txtCuentaOrigen;
+    public static javax.swing.JTextField txtNumeroOperacion;
     // End of variables declaration//GEN-END:variables
 }

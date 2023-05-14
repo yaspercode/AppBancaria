@@ -118,7 +118,53 @@ public class CuentaDAO {
     }
     return idCliente;
 }
-
     
-//    SELECT c.numero_cuenta FROM cuenta c WHERE c.id_cliente=5;
+    //Ver la cantidad de cuentas
+    public int cantidadCuentas(int id_cliente) {
+        int idCliente = -1;
+        try {
+            con = MYSQLConexion.getConexion();
+            if (con == null) {
+                JOptionPane.showMessageDialog(null, "No se puedo establecer la conexión con la base de datos");
+                return idCliente;
+            }
+            String sql = "select COUNT(c.numero_cuenta) AS cantidad \n" +
+            "from cuenta c\n" +
+            "where c.id_cliente=?";
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id_cliente);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                idCliente = rs.getInt("cantidad");
+            }
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return idCliente;
+    }
+    
+    public Cuenta getOne(String numeroCuenta) {
+        Cuenta c =null; 
+        try {
+        String sql="select c.id_cuenta, c.moneda, c.saldo\n" +
+        "from cuenta c\n" +
+        "where c.numero_cuenta='"+numeroCuenta+"'";
+          con=MYSQLConexion.getConexion();
+         ps=con.prepareStatement(sql);
+         rs=ps.executeQuery();
+         while(rs.next()){
+         c= new Cuenta();
+         c.setIdCuenta(rs.getInt(1));
+         c.setMoneda(rs.getString(2));
+         c.setSaldo(rs.getDouble(3));
+         }
+     } catch (SQLException ex) {
+               ex.getMessage();
+     }
+        return c;
+    }
+
 }

@@ -36,7 +36,7 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
         txtMonto = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         btnSiguiente = new javax.swing.JButton();
-        txtMonto1 = new javax.swing.JTextField();
+        txtNumeroCuentaDestino = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
@@ -119,7 +119,7 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
                         .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                        .addComponent(txtMonto1, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(txtNumeroCuentaDestino, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -138,7 +138,7 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMonto1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNumeroCuentaDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -227,7 +227,7 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnInicio;
     public static javax.swing.JButton btnSiguiente;
-    private javax.swing.JComboBox<String> cbCuentaOrigen;
+    public static javax.swing.JComboBox<String> cbCuentaOrigen;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel7;
@@ -236,8 +236,8 @@ public class frmTransferenciasTerceros extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbNombreCliente;
-    private javax.swing.JTextArea txtDescripcion;
-    private javax.swing.JTextField txtMonto;
-    private javax.swing.JTextField txtMonto1;
+    public static javax.swing.JTextArea txtDescripcion;
+    public static javax.swing.JTextField txtMonto;
+    public static javax.swing.JTextField txtNumeroCuentaDestino;
     // End of variables declaration//GEN-END:variables
 }

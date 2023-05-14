@@ -20,6 +20,14 @@ public class Cuenta {
     public Cuenta() {
     }
 
+    public Cuenta(int idCuenta, String numeroCuenta, String tipo, String moneda, double saldo) {
+        this.idCuenta = idCuenta;
+        this.numeroCuenta = numeroCuenta;
+        this.tipo = tipo;
+        this.moneda = moneda;
+        this.saldo = saldo;
+    }
+
     public Cuenta(int idCuenta, String numeroCuenta, int clave, String fecha_creacion, String tipo, String moneda, Cliente cliente, double saldo) {
         this.idCuenta = idCuenta;
         this.numeroCuenta = numeroCuenta;

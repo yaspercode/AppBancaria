@@ -29,10 +29,10 @@ public class TransferenciaDAO {
                 JOptionPane.showMessageDialog(null, "No se puedo establecer la conexión con la base de datos");
                 return lista;
             }
-            String sql = "SELECT t.fecha, t.tipo_transferencia, t.total\n" +
-            "FROM Cuenta c\n" +
-            "JOIN transferencia t ON c.id_cuenta = t.id_cuenta_origen OR c.id_cuenta = t.id_cuenta_destino\n" +
-            "WHERE c.numero_cuenta = '"+numero_cuenta+"'\n" +
+            String sql = "SELECT t.fecha,t.tipo_transferencia, t.total\n" +
+            "FROM cuenta c\n" +
+            "INNER JOIN transferencia t ON c.id_cuenta = t.id_cuenta_origen OR c.id_cuenta = t.id_cuenta_destino\n" +
+            "WHERE c.numero_cuenta="+numero_cuenta+"\n" +
             "ORDER BY t.fecha DESC;";
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -49,20 +49,42 @@ public class TransferenciaDAO {
         return lista;
     }
     
+    public Transferencia getOneTransferencia() {
+        Transferencia t =null; 
+        try {
+        String sql="Select t.id_transferencia, t.total, t.fecha \n" +
+        "FROM transferencia t\n" +
+        "order by id_transferencia desc\n" +
+        "LIMIT 1;";
+         con=MYSQLConexion.getConexion();
+         ps=con.prepareStatement(sql);
+         rs=ps.executeQuery();
+         while(rs.next()){
+         t= new Transferencia();
+         t.setIdTransferencia(rs.getInt(1));
+         t.setTotal(rs.getDouble(2));
+         t.setFecha(rs.getString(3));
+         }
+     } catch (SQLException ex) {
+               ex.getMessage();
+     }
+        return t;
+    }
     
     //Método para agregar una nueva transferencia
     public void agregarTransferencia(Transferencia transferencia) throws SQLException {
         con = MYSQLConexion.getConexion();
-        String query = "INSERT INTO Transferencia (id_transferencia, id_cuenta_origen, id_cuenta_destino, cantidad, fecha, descripcion) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO transferencia (id_cuenta_origen, id_cuenta_destino, total, fecha, comision, tasa_cambio, descripcion, tipo_transferencia) VALUES (?, ?, ?, ? ,?, ?, ?, ?)";
 
         try (PreparedStatement statement = con.prepareStatement(query)) {
-            statement.setInt(1, transferencia.getIdTransferencia());
-            statement.setInt(2, transferencia.getCuentaOrigen().getIdCuenta());
-            statement.setInt(3, transferencia.getCuentaDestino().getIdCuenta());
-            statement.setDouble(4, transferencia.getTotal());
-            statement.setString(5, transferencia.getFecha());
-            statement.setString(6, transferencia.getDescripcion());
-
+            statement.setInt(1, transferencia.getCuentaOrigen().getIdCuenta());
+            statement.setInt(2, transferencia.getCuentaDestino().getIdCuenta());
+            statement.setDouble(3, transferencia.getTotal());
+            statement.setString(4, transferencia.getFecha());
+            statement.setDouble(5, transferencia.getComision());
+            statement.setDouble(6, transferencia.getTasaCambio());
+            statement.setString(7, transferencia.getDescripcion());
+            statement.setString(8, transferencia.getTipoTransferencia());
             statement.executeUpdate();
         }
     }
