@@ -11,7 +11,7 @@ public class MYSQLConexion {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url="jdbc:mysql://localhost/app_bancaria";
             String usr="root";
-            String psw="*SoloLeveling20*";
+            String psw="";
             con= DriverManager.getConnection(url,usr,psw);
             System.out.println("Conexión exitosa");
         } catch(ClassNotFoundException ex){
