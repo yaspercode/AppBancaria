@@ -50,7 +50,9 @@ public class TransferenciaController implements ActionListener{
                 this.formularioTransferencias.dispose();
             }else{
                 this.formularioTransferencias.btnTransacionesEntreCuentas.setEnabled(false);
-                JOptionPane.showMessageDialog(null, "El cliente no tiene suficientes cuentas para realizar una transferencia", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "El cliente no tiene suficientes\n"
+                        + "cuentas para realizar una transferencia\n"
+                        + "entre sus mismas cuentas", "Advertencia", JOptionPane.WARNING_MESSAGE);
             }
         }
         if (e.getSource().equals(formularioTransferencias.btnTransacionesTerceros)) {

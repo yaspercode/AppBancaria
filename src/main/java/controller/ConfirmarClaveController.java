@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import model.Cuenta;
 import model.DatosFormulario;
@@ -42,21 +43,20 @@ public class ConfirmarClaveController implements ActionListener{
         this.formularioConfirmarClave.btnCancelar.addActionListener(this);
         this.formularioConfirmarClave.btnPagar.addActionListener(this);
         this.datosFormulario = DatosFormulario.getInstance();
+        
+        ImageIcon img1=new ImageIcon("src/main/java/view/money-transfer.png");
+        this.formularioConfirmarClave.lbMoneyTransfer.setIcon(img1);
     }
     
     public void realizarTransferencia(Cuenta cuentaOrigen, double monto, Cuenta cuentaDestino, String descripcion, String tipoTransferencia) throws SQLException{
         //Obtener tasa de cambio según el tipo de moneda de origen y destino
         double tasaCambio = transferencia.obtenerTasaCambio(cuentaOrigen.getMoneda(), cuentaDestino.getMoneda());
-        //Calcular comisión según el monto a despositar
-        double comision = transferencia.calcularComision(monto);
+        System.out.println("Tasa de cambio: "+tasaCambio);
         //Calcular el total de la transferencia
-        double total = monto * tasaCambio + comision;
-        //Verificar si el total que se va a despositar es mayor que que el saldo de la cuenta
-        if(total >= cuentaOrigen.getSaldo()){
-            JOptionPane.showMessageDialog(formularioTransferencias, "El monto depositado es mayor a su saldo de su cuenta");
-        }
+        double total = monto * tasaCambio;
+            
         //Actualizar el saldo de la cuenta de origen
-        double nuevoSaldoOrigen = cuentaOrigen.getSaldo() - total;
+        double nuevoSaldoOrigen = cuentaOrigen.getSaldo() - monto;
         cuentaOrigen.setSaldo(nuevoSaldoOrigen);
         transferenciaDAO.actualizarSaldo(cuentaOrigen, nuevoSaldoOrigen);
         
@@ -78,7 +78,6 @@ public class ConfirmarClaveController implements ActionListener{
         transferencia.setCuentaDestino(cuentaDestino);
         transferencia.setTotal(total);
         transferencia.setFecha(fechaHoraFormateada);
-        transferencia.setComision(comision);
         transferencia.setTasaCambio(tasaCambio);
         transferencia.setDescripcion(descripcion);
         transferencia.setTipoTransferencia(tipoTransferencia);

@@ -29,19 +29,6 @@ public class Transferencia {
         this.tipoTransferencia = tipoTransferencia;
     }
 
-    // Método para calcular la comisión según el monto a depositar
-    public static double calcularComision(double monto) {
-        if (monto <= 1000) {
-            return 3.0;
-        } else if (monto <= 5000) {
-            return 6.0;
-        } else if (monto <= 10000) {
-            return 8.0;
-        } else {
-            return 10.0;
-        }
-    }
-    
     // Método para obtener la tasa de cambio según el tipo de moneda de origen y destino
     public static double obtenerTasaCambio(String tipoMonedaOrigen, String tipoMonedaDestino) {
         if (tipoMonedaOrigen.equals("USD") && tipoMonedaDestino.equals("PEN")) {

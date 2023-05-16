@@ -95,25 +95,33 @@ public class TransfeEntreCuentasController implements ActionListener{
             String cuentaDestinoSeleccionada = formularioTransferenciasEntreCuentas.cbCuentaDestino.getSelectedItem().toString().substring(0, 16);
             //Obtener el monto que no este vacio
             String textoMonto = formularioTransferenciasEntreCuentas.txtMonto.getText();
-            if (!textoMonto.isEmpty() && textoMonto.matches("[0-9]+")) {
+            if (!textoMonto.isEmpty() && textoMonto.matches("[0-9]+(\\.\\d{1,2})?")) {
                 double monto = Double.parseDouble(textoMonto);
                 //obtener el id de la cuenta origen y destino
                 cuentaOrigen = cuentaDao.getOne(cuentaOrigenSeleccionada);
                 cuentaDestino = cuentaDao.getOne(cuentaDestinoSeleccionada);
-                datosFormulario.setIdCuentaOrigen(cuentaOrigen.getIdCuenta());
-                datosFormulario.setIdCuentaDestino(cuentaDestino.getIdCuenta());
-                datosFormulario.setNumeroCuentaOrigen(cuentaOrigenSeleccionada);
-                datosFormulario.setNumeroCuentaDestino(cuentaDestinoSeleccionada);
-                datosFormulario.setSaldoOrigen(cuentaOrigen.getSaldo());
-                datosFormulario.setSaldoDestino(cuentaDestino.getSaldo());
-                datosFormulario.setMonto(monto);
-                //Tipo de moneda
-                datosFormulario.setTipoMonedaCuentaOrigen(cuentaOrigen.getMoneda());
-                datosFormulario.setTipoMonedaCuentaDestino(cuentaDestino.getMoneda());
-                //Mostrar el formulario de confirmación
-                formularioConfirmarClave = new frmConfirmarClave();
-                formularioConfirmarClave.setVisible(true);
-                this.formularioTransferenciasEntreCuentas.dispose();
+                //validar que le monto minimo sea 1 sol o 0.27 y el máximo sea menor o igual que el saldo de la cuenta
+                if((monto >= 1 || monto >= 0.27) && monto <= cuentaOrigen.getSaldo()){
+                    datosFormulario.setIdCuentaOrigen(cuentaOrigen.getIdCuenta());
+                    datosFormulario.setIdCuentaDestino(cuentaDestino.getIdCuenta());
+                    datosFormulario.setNumeroCuentaOrigen(cuentaOrigenSeleccionada);
+                    datosFormulario.setNumeroCuentaDestino(cuentaDestinoSeleccionada);
+                    datosFormulario.setSaldoOrigen(cuentaOrigen.getSaldo());
+                    datosFormulario.setSaldoDestino(cuentaDestino.getSaldo());
+                    datosFormulario.setMonto(monto);
+                    //Tipo de moneda
+                    datosFormulario.setTipoMonedaCuentaOrigen(cuentaOrigen.getMoneda());
+                    datosFormulario.setTipoMonedaCuentaDestino(cuentaDestino.getMoneda());
+                    //Mostrar el formulario de confirmación
+                    formularioConfirmarClave = new frmConfirmarClave();
+                    formularioConfirmarClave.setVisible(true);
+                    this.formularioTransferenciasEntreCuentas.dispose();
+                }else{
+                    //Mostrar mensaje de los montos a depositar
+                    JOptionPane.showMessageDialog(formularioTransferencias, "Monto mínimo:\n"
+                                + "Para soles es de S/. 1\n"
+                                + "Para dólares es de $ 0.27");
+                }
             } else {
                 // Mostrar un mensaje de error o realizar alguna acción en caso de entrada inválida
                 JOptionPane.showMessageDialog(formularioTransferencias, "El monto es invalido");

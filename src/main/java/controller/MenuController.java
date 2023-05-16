@@ -11,6 +11,7 @@ import model.Transferencia;
 import view.frmLogin;
 import view.frmMovimientos;
 import dao.TransferenciaDAO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import model.DatosFormulario;
 import view.frmTransferencias;
@@ -37,6 +38,10 @@ public class MenuController implements ActionListener{
         this.formularioMenu.btnTransferencia.addActionListener(this);
         this.formularioMenu.btnCerrarSesion.addActionListener(this);
         this.datosFormulario = DatosFormulario.getInstance();
+        
+        ImageIcon img1=new ImageIcon("src/main/java/view/Avatar.jpg");
+        this.formularioMenu.lbAvatar.setIcon(img1);
+        
         ListarTablaCuenta();
         NombreCliente();
     }
@@ -57,11 +62,10 @@ public class MenuController implements ActionListener{
         modelo.fireTableDataChanged();//cualquier cambio se refleje
     }
     
-    public void ListarTablaMovimientos(){
-        String numeroCuenta = datosFormulario.getNumeroCuenta();
+    public void ListarTablaMovimientos(String numCuentaSelecionada){
         DefaultTableModel modelo = (DefaultTableModel) formularioMovimientos.tabla.getModel();
         modelo.setRowCount(0);
-        List<Transferencia> lista = transferenciaDAO.listar(numeroCuenta);
+        List<Transferencia> lista = transferenciaDAO.listar(numCuentaSelecionada);
         for (int i = 0; i < lista.size(); i++) {
             Object o[] = {lista.get(i).getFecha(), lista.get(i).getTipoTransferencia(), lista.get(i).getTotal()};
             modelo.addRow(o);
@@ -94,7 +98,7 @@ public class MenuController implements ActionListener{
                 formularioMovimientos = new frmMovimientos();
                 formularioMovimientos.lbNumeroCuenta.setText(numCuenta);
                 formularioMovimientos.lbMonto.setText(monto);
-                ListarTablaMovimientos();
+                ListarTablaMovimientos(numCuenta);
                 formularioMovimientos.setVisible(true);
                 this.formularioMenu.dispose();
             }else{

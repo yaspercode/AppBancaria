@@ -25,6 +25,13 @@ public class LoginController implements ActionListener{
         this.formularioLogin.setLocationRelativeTo(null);//Establecer en el centro
         this.formularioLogin.btnLogin.addActionListener(this);
         this.datosFormulario = DatosFormulario.getInstance();
+        //Establecer los iconos si no se muestran
+        ImageIcon img1=new ImageIcon("src/main/java/view/Logo.jpg");
+        ImageIcon img2=new ImageIcon("src/main/java/view/Card bank.jpg");
+        ImageIcon img3=new ImageIcon("src/main/java/view/Lock.jpg");
+        this.formularioLogin.lbLogo.setIcon(img1);
+        this.formularioLogin.lbCardBank.setIcon(img2);
+        this.formularioLogin.lbLock.setIcon(img3);
     }
         
     @Override

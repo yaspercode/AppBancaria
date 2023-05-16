@@ -32,10 +32,11 @@ public class ConstanciaController implements ActionListener{
         //Obtener los datos de memoria 
         formularioConstancia.txtCuentaOrigen.setText(datosFormulario.getNumeroCuentaOrigen());
         formularioConstancia.txtCuentaDestino.setText(datosFormulario.getNumeroCuentaDestino());
-        
+        int idCuentaOrigen = datosFormulario.getIdCuentaOrigen();
         //Obtener la ultima transación
         transferencia = new Transferencia();
-        transferencia = transferenciaDAO.getOneTransferencia();
+        //Obtener el último dato de la id de la cuenta de origen
+        transferencia = transferenciaDAO.getOneTransferencia(idCuentaOrigen);
         //Obtener fecha
         formularioConstancia.lbFecha.setText(transferencia.getFecha());
         //Obtener monto

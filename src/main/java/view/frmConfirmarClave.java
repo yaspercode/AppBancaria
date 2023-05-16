@@ -29,7 +29,7 @@ public class frmConfirmarClave extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtClave = new javax.swing.JPasswordField();
         btnCancelar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbMoneyTransfer = new javax.swing.JLabel();
         btnPagar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,7 +45,7 @@ public class frmConfirmarClave extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\AppBancaria\\src\\main\\java\\view\\money-transfer.png")); // NOI18N
+        lbMoneyTransfer.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\AppBancaria\\src\\main\\java\\view\\money-transfer.png")); // NOI18N
 
         btnPagar.setBackground(new java.awt.Color(0, 70, 134));
         btnPagar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -71,14 +71,14 @@ public class frmConfirmarClave extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(lbMoneyTransfer)
                 .addGap(127, 127, 127))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lbMoneyTransfer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -142,9 +142,9 @@ public class frmConfirmarClave extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnCancelar;
     public static javax.swing.JButton btnPagar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    public static javax.swing.JLabel lbMoneyTransfer;
     public static javax.swing.JPasswordField txtClave;
     // End of variables declaration//GEN-END:variables
 }

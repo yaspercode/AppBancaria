@@ -49,11 +49,12 @@ public class TransferenciaDAO {
         return lista;
     }
     
-    public Transferencia getOneTransferencia() {
+    public Transferencia getOneTransferencia(int idCuentaOrigen) {
         Transferencia t =null; 
         try {
         String sql="Select t.id_transferencia, t.total, t.fecha \n" +
         "FROM transferencia t\n" +
+        "WHERE t.id_cuenta_origen ="+idCuentaOrigen+"\n" +            
         "order by id_transferencia desc\n" +
         "LIMIT 1;";
          con=MYSQLConexion.getConexion();
@@ -74,17 +75,16 @@ public class TransferenciaDAO {
     //Método para agregar una nueva transferencia
     public void agregarTransferencia(Transferencia transferencia) throws SQLException {
         con = MYSQLConexion.getConexion();
-        String query = "INSERT INTO transferencia (id_cuenta_origen, id_cuenta_destino, total, fecha, comision, tasa_cambio, descripcion, tipo_transferencia) VALUES (?, ?, ?, ? ,?, ?, ?, ?)";
+        String query = "INSERT INTO transferencia (id_cuenta_origen, id_cuenta_destino, total, fecha, tasa_cambio, descripcion, tipo_transferencia) VALUES (?, ?, ?, ? ,?, ?, ?)";
 
         try (PreparedStatement statement = con.prepareStatement(query)) {
             statement.setInt(1, transferencia.getCuentaOrigen().getIdCuenta());
             statement.setInt(2, transferencia.getCuentaDestino().getIdCuenta());
             statement.setDouble(3, transferencia.getTotal());
             statement.setString(4, transferencia.getFecha());
-            statement.setDouble(5, transferencia.getComision());
-            statement.setDouble(6, transferencia.getTasaCambio());
-            statement.setString(7, transferencia.getDescripcion());
-            statement.setString(8, transferencia.getTipoTransferencia());
+            statement.setDouble(5, transferencia.getTasaCambio());
+            statement.setString(6, transferencia.getDescripcion());
+            statement.setString(7, transferencia.getTipoTransferencia());
             statement.executeUpdate();
         }
     }

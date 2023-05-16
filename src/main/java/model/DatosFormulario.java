@@ -5,15 +5,15 @@ package model;
  * @author HP
  */
 public class DatosFormulario {
-    private String numeroCuenta;
-    private String clave;
-    private int idCliente;
-    private String nombreCliente;
+    private String numeroCuenta;//datos sensibles
+    private String clave;//datos sensibles
+    private int idCliente;//dato senesible
+    private String nombreCliente;//dato sensible
     private String nombreFormulario;
-    private int idCuentaOrigen;
-    private int idCuentaDestino;
-    private String numeroCuentaOrigen;
-    private String numeroCuentaDestino;
+    private int idCuentaOrigen;//dato sensible
+    private int idCuentaDestino;//dato sensible
+    private String numeroCuentaOrigen;//dato sensible
+    private String numeroCuentaDestino;//dato sensible
     private String tipoMonedaCuentaOrigen;
     private String tipoMonedaCuentaDestino;
     private double monto;

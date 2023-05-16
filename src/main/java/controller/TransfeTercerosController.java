@@ -61,40 +61,61 @@ public class TransfeTercerosController implements ActionListener{
         if(e.getSource().equals(formularioTransferenciasTerceros.btnSiguiente)){
             //Almacenar datos en memoria
             String cuentaOrigenSeleccionada = formularioTransferenciasTerceros.cbCuentaOrigen.getSelectedItem().toString().substring(0, 16);
+            //Obtener la cantidad de caracteres 
+            int cantidadCaracteresDescripcion = formularioTransferenciasTerceros.txtDescripcion.getText().length();
             //Obtener el monto que no este vacio y solo acepte número
             String textMonto = formularioTransferenciasTerceros.txtMonto.getText();
             String textNumeroCuentaDestinio = formularioTransferenciasTerceros.txtNumeroCuentaDestino.getText();
-            if(!textMonto.isEmpty() && textMonto.matches("[0-9]+")){
+            if(!textMonto.isEmpty() && textMonto.matches("[0-9]+(\\.\\d{1,2})?")){
                 if(!textNumeroCuentaDestinio.isEmpty() && textNumeroCuentaDestinio.matches("[0-9]+")){
-                    //Convertir monto
-                    double monto = Double.parseDouble(textMonto);
-                    //Obtener el id de la cuenta de origen y destino
-                    cuentaOrigen = cuentaDao.getOne(cuentaOrigenSeleccionada);
-                    cuentaDestino = cuentaDao.getOne(textNumeroCuentaDestinio);
-                    //Almacenar el id de la cuenta
-                    datosFormulario.setIdCuentaOrigen(cuentaOrigen.getIdCuenta());
-                    datosFormulario.setIdCuentaDestino(cuentaDestino.getIdCuenta());
-                    //Almacenar el saldo
-                    datosFormulario.setSaldoOrigen(cuentaOrigen.getSaldo());
-                    datosFormulario.setSaldoDestino(cuentaDestino.getSaldo());
-                    //Almacenar el número de cuenta
-                    datosFormulario.setNumeroCuentaOrigen(cuentaOrigenSeleccionada);
-                    datosFormulario.setNumeroCuentaDestino(textNumeroCuentaDestinio);
-                    //Almacenar monto a depositar
-                    datosFormulario.setMonto(monto);
-                    //Almacenar el tipo de moneda
-                    datosFormulario.setTipoMonedaCuentaOrigen(cuentaOrigen.getMoneda());
-                    datosFormulario.setTipoMonedaCuentaDestino(cuentaDestino.getMoneda());
-                    //Mostrar el formulario confirmar clave
-                    formularioConfirmarClave = new frmConfirmarClave();
-                    formularioConfirmarClave.setVisible(true);
-                    this.formularioTransferenciasTerceros.dispose();
+                    //Compara que la cuenta de destino no sea igual que la cuenta de origen
+                    if(!textNumeroCuentaDestinio.equals(cuentaOrigenSeleccionada)){
+                        //El texto no debe seuperar los 100 caracteres
+                        if(cantidadCaracteresDescripcion<100){
+                            //Convertir monto
+                            double monto = Double.parseDouble(textMonto);
+                            //Obtener el id de la cuenta de origen y destino
+                            cuentaOrigen = cuentaDao.getOne(cuentaOrigenSeleccionada);
+                            cuentaDestino = cuentaDao.getOne(textNumeroCuentaDestinio);
+                            //validar que le monto minimo sea 1 sol y el máximo sea menor o igual que el saldo de la cuenta
+                            if((monto >=1 || monto >=0.27) && monto <=cuentaOrigen.getSaldo()){
+                            //Almacenar el id de la cuenta
+                            datosFormulario.setIdCuentaOrigen(cuentaOrigen.getIdCuenta());
+                            datosFormulario.setIdCuentaDestino(cuentaDestino.getIdCuenta());
+                            //Almacenar el saldo
+                            datosFormulario.setSaldoOrigen(cuentaOrigen.getSaldo());
+                            datosFormulario.setSaldoDestino(cuentaDestino.getSaldo());
+                            //Almacenar el número de cuenta
+                            datosFormulario.setNumeroCuentaOrigen(cuentaOrigenSeleccionada);
+                            datosFormulario.setNumeroCuentaDestino(textNumeroCuentaDestinio);
+                            //Almacenar monto a depositar
+                            datosFormulario.setMonto(monto);
+                            //Almacenar el tipo de moneda
+                            datosFormulario.setTipoMonedaCuentaOrigen(cuentaOrigen.getMoneda());
+                            datosFormulario.setTipoMonedaCuentaDestino(cuentaDestino.getMoneda());
+                            //Mostrar el formulario confirmar clave
+                            formularioConfirmarClave = new frmConfirmarClave();
+                            formularioConfirmarClave.setVisible(true);
+                            this.formularioTransferenciasTerceros.dispose();
+                            }else{
+                                JOptionPane.showMessageDialog(formularioTransferencias, "Monto mínimo:\n"
+                                        + "Para soles es de S/. 1 \n"
+                                        + "Para dólares es de $ 0.27");
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(null, "El texto supera la cantidad\n"
+                                        + "de 100 caracteres");
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "No puedes enviar a tu misma\n"
+                                + "cuenta de origen");
+                    }
                 }else{
-                    JOptionPane.showMessageDialog(formularioTransferencias, "Número de cuenta de destino invalido");
+                    JOptionPane.showMessageDialog(null, "Número de cuenta de destino invalido");
                 }
             }else{
                 //Mostrar mensaje de error
-                JOptionPane.showMessageDialog(formularioTransferencias, "Monto invalido");
+                JOptionPane.showMessageDialog(null, "Monto invalido");
             }
         }
     }

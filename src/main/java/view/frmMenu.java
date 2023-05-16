@@ -35,7 +35,7 @@ public class frmMenu extends javax.swing.JFrame {
         btnMovimiento = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
         lbNombreCompleto = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lbAvatar = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,7 +104,7 @@ public class frmMenu extends javax.swing.JFrame {
         lbNombreCompleto.setForeground(new java.awt.Color(0, 0, 0));
         lbNombreCompleto.setText("Miguel Mallqui");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\AppBancaria\\src\\main\\java\\view\\Avatar.jpg")); // NOI18N
+        lbAvatar.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\AppBancaria\\src\\main\\java\\view\\Avatar.jpg")); // NOI18N
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -132,7 +132,7 @@ public class frmMenu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5))
+                                .addComponent(lbAvatar))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -157,7 +157,7 @@ public class frmMenu extends javax.swing.JFrame {
                         .addGap(43, 43, 43))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
+                        .addComponent(lbAvatar)
                         .addGap(35, 35, 35)))
                 .addComponent(jLabel6)
                 .addGap(11, 11, 11)
@@ -243,10 +243,10 @@ public class frmMenu extends javax.swing.JFrame {
     public static javax.swing.JButton btnTransferencia;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JLabel lbAvatar;
     private javax.swing.JLabel lbNombreCliente;
     public static javax.swing.JLabel lbNombreCompleto;
     public static javax.swing.JTable tablaCuenta;
