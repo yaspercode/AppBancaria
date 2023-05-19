@@ -16,7 +16,7 @@ Este proyecto en java es una implementación simplificada de un sistema de trans
 
 ## Créditos
 
-Este proyecto fue creado por Miguel Mallqui Diaz como proyecto para el curso de Integrador 1, se tomó como referencia al banco BCP.
+Este proyecto fue creado por Miguel Mallqui Diaz como un proyecto de programación orientada a objetos, y se inspiró en el funcionamiento del banco BCP.
 
 ## Capturas de pantallas
 
