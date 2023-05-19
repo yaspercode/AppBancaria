@@ -43,7 +43,7 @@ public class ConfirmarClaveController implements ActionListener{
         this.formularioConfirmarClave.btnCancelar.addActionListener(this);
         this.formularioConfirmarClave.btnPagar.addActionListener(this);
         this.datosFormulario = DatosFormulario.getInstance();
-        this.formularioConfirmarClave.setSize(385, 277);
+        this.formularioConfirmarClave.setSize(385, 350);
         ImageIcon img1=new ImageIcon("src/main/java/view/money-transfer.png");
         this.formularioConfirmarClave.lbMoneyTransfer.setIcon(img1);
     }
