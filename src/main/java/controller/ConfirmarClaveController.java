@@ -104,9 +104,9 @@ public class ConfirmarClaveController implements ActionListener{
             //Obtener la clave de la menoria
             String clave = datosFormulario.getClave();
             //Obtener la clave digitada
-            String claveDigitada = formularioConfirmarClave.txtClave.getText();
+            int claveDigitada = Integer.parseInt(formularioConfirmarClave.txtClave.getText());
             //Comparar que sean iguales
-            if(clave.equals(claveDigitada)){
+            if(clave == claveDigitada){
                 cuentaOrigen = new Cuenta();
             cuentaDestino = new Cuenta();
             //id cuenta y id destino
