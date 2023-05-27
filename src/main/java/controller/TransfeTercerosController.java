@@ -82,6 +82,7 @@ public class TransfeTercerosController implements ActionListener{
                             //Almacenar el id de la cuenta
                             datosFormulario.setIdCuentaOrigen(cuentaOrigen.getIdCuenta());
                             datosFormulario.setIdCuentaDestino(cuentaDestino.getIdCuenta());
+                            datosFormulario.setClave(cuentaOrigen.getClave());    
                             //Almacenar el saldo
                             datosFormulario.setSaldoOrigen(cuentaOrigen.getSaldo());
                             datosFormulario.setSaldoDestino(cuentaDestino.getSaldo());
