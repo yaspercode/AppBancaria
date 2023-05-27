@@ -109,6 +109,7 @@ public class TransfeEntreCuentasController implements ActionListener{
                     datosFormulario.setSaldoOrigen(cuentaOrigen.getSaldo());
                     datosFormulario.setSaldoDestino(cuentaDestino.getSaldo());
                     datosFormulario.setMonto(monto);
+                    datosFormulario.setClave(cuentaOrigen.getClave());
                     //Tipo de moneda
                     datosFormulario.setTipoMonedaCuentaOrigen(cuentaOrigen.getMoneda());
                     datosFormulario.setTipoMonedaCuentaDestino(cuentaDestino.getMoneda());
