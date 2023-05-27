@@ -149,7 +149,7 @@ public class CuentaDAO {
     public Cuenta getOne(String numeroCuenta) {
         Cuenta c =null; 
         try {
-        String sql="select c.id_cuenta, c.moneda, c.saldo\n" +
+        String sql="select c.id_cuenta, c.moneda, c.saldo, c.clave\n" +
         "from cuenta c\n" +
         "where c.numero_cuenta='"+numeroCuenta+"'";
           con=MYSQLConexion.getConexion();
@@ -160,6 +160,7 @@ public class CuentaDAO {
          c.setIdCuenta(rs.getInt(1));
          c.setMoneda(rs.getString(2));
          c.setSaldo(rs.getDouble(3));
+         c.setClave(rs.getInt(4));
          }
      } catch (SQLException ex) {
                ex.getMessage();
