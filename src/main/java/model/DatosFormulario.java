@@ -6,7 +6,7 @@ package model;
  */
 public class DatosFormulario {
     private String numeroCuenta;//datos sensibles
-    private String clave;//datos sensibles
+    private int clave;//datos sensibles
     private int idCliente;//dato senesible
     private String nombreCliente;//dato sensible
     private String nombreFormulario;
@@ -42,11 +42,11 @@ public class DatosFormulario {
         this.numeroCuenta = numeroCuenta;
     }
 
-    public String getClave() {
+    public int getClave() {
         return clave;
     }
 
-    public void setClave(String clave) {
+    public void setClave(int clave) {
         this.clave = clave;
     }
     
