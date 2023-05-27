@@ -21,7 +21,7 @@ Este proyecto fue creado por Miguel Mallqui Diaz como un proyecto de programaci�
 ## Capturas de pantallas
 
 A continuación, se muestran las interfaces que ilustran las funcionalidades de la aplicación.
-### Base de datos de Cuentas y cliente
+### Base de datos
 Listado de clientes y sus cuentas.
 
 ![Imagen de tabla cliente](https://i.imgur.com/0thbZ3W.png)
